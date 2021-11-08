@@ -1,4 +1,4 @@
-from typing import Any, Dict, Optional
+from typing import Any, Dict
 from kedro.io import AbstractDataSet
 from intake.catalog.base import Catalog as IntakeCatalog
 from intake.source.base import DataSourceBase
