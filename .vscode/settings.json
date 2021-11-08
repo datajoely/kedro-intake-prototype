@@ -1,0 +1,5 @@
+{
+    "python.defaultInterpreterPath": "/Users/joel_schwarzmann/miniconda3/envs/intake-test/bin/python",
+    "terminal.integrated.cwd": "/Users/joel_schwarzmann/Documents/projects/intake-test/",
+    "python.formatting.provider": "black"
+}
