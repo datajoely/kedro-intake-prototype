@@ -10,13 +10,10 @@ class IntakeDataSet(AbstractDataSet):
         self,
         intake_catalog: IntakeCatalog,
         dataset_name: str,
-        return_object: bool = False,
     ) -> None:
         self.dataset_name = dataset_name
         self.intake_catalog = intake_catalog
-        self._return_object = return_object
 
-    
     def get_intake_dataset(self) -> DataSourceBase:
         """[summary]
 
@@ -48,7 +45,9 @@ class IntakeDataSet(AbstractDataSet):
             Any: [description]
         """
         retrieved_attribute = self.get_intake_dataset()
-        if self._return_object:
+
+        load_obj = retrieved_attribute.metadata.get("kedro", {}).get("load_obj", False)
+        if load_obj:
             return retrieved_attribute
         else:
             return retrieved_attribute.read()
@@ -83,4 +82,4 @@ class IntakeDataSet(AbstractDataSet):
         Returns:
             Dict[str, Any]: [description]
         """
-        return self.get_intake_dataset()
+        return self.get_intake_dataset().describe()

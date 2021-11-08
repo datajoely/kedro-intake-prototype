@@ -7,3 +7,12 @@ sources:
       urlpath: data/01_raw/reviews.csv
     driver: csv
     description: "A log of company reviews"
+    
+  reviews_object:
+    args:
+      urlpath: data/01_raw/reviews.csv
+    driver: csv
+    description: "A log of company reviews, return Intake object that can be read in different ways such as `read_chunked()`"
+    metadata:
+      kedro:
+        load_obj: True
