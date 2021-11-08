@@ -47,3 +47,14 @@ def after_catalog_created(self, catalog: DataCatalog):
 ## Results
 
 ![example](demo.png)
+
+## Why do this?
+
+The intake catalog supports a [wide range of plugins](https://intake.readthedocs.io/en/latest/plugin-directory.html) and dataset targets that would give users a wider range of readable sources out of the box. Kedro takes quite a low level approach to the type of datasets supported so providing users with complex high level connectors such as:
+
+- [Mongo](https://github.com/intake/intake-mongo)
+- [Metabase](https://github.com/continuumio/intake-metabase)
+- [Stripe](https://github.com/sophiamyang/intake-stripe)
+- [Solr](https://github.com/intake/intake-solr)
+- [Salesforce](https://github.com/sophiamyang/intake-salesforce)
+- [Splunk](https://github.com/intake/intake-splunk) 
