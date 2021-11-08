@@ -2,8 +2,6 @@
 
 The [Intake](https://intake.readthedocs.io/) catalog is similar to the Kedro `DataCatalog` and this repository serves as a testing ground for considering ways for the two tools to work together and provide users with a greater breadth of functionality. Eventually this repository could serve as a basis for a full fledged Kedro plugin.
 
-## Introductions
-
 ### Intake Catalog
 
 ```yaml
@@ -21,6 +19,8 @@ sources:
 ### After catalog created hook
 
 ```python
+from space.extras.datasets.intake_dataset import IntakeDataSet
+
 @hook_impl
 def after_catalog_created(self, catalog: DataCatalog):
 
@@ -42,7 +42,7 @@ def after_catalog_created(self, catalog: DataCatalog):
 ### Define `IntakeDataSet`
 
 - Implementation can be found at: `extras/datasets/intake_dataset.py`
-- Simple wrapper for Intake catalog object providing load functionality, save raises an error
+- Simple wrapper for Intake catalog object providing load functionality, save `raise`s an error
 
 ## Results
 
