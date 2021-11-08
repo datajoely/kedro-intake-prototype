@@ -29,10 +29,16 @@
 """Project hooks."""
 from typing import Any, Dict, Iterable, Optional
 
+import intake
+
 from kedro.config import ConfigLoader
 from kedro.framework.hooks import hook_impl
+
 from kedro.io import DataCatalog
 from kedro.versioning import Journal
+from space.extras.datasets.intake_dataset import IntakeDataSet
+
+# todo add the intake datasets to readable catalog entries prefixed with intake:
 
 
 class ProjectHooks:
@@ -54,3 +60,16 @@ class ProjectHooks:
         return DataCatalog.from_config(
             catalog, credentials, load_versions, save_version, journal
         )
+
+    @hook_impl
+    def after_catalog_created(self, catalog: DataCatalog):
+
+        intake_catalog = intake.open_catalog("conf/base/intake.yml")
+        intake_datasets = {
+            x: IntakeDataSet(intake_catalog=intake_catalog, dataset_name=x)
+            for x in list(intake_catalog)
+        }
+        for ds_name, ds_obj in intake_datasets.items():
+            catalog.add(
+                data_set_name=f"intake:{ds_name}", data_set=ds_obj, replace=True
+            )
