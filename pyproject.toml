@@ -1,7 +1,7 @@
 [tool.kedro]
 package_name = "space"
 project_name = "space"
-project_version = "0.18.1"
+project_version = "0.18.12"
 
 [tool.isort]
 multi_line_output = 3
