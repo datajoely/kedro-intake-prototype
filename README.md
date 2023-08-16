@@ -1,3 +1,8 @@
+# Pre-requisite
+This is a kedro project, prior to running install kedro, then use kedro command to run the project.
+
+    pip install kedro~=0.18.12
+
 # Prototype integration of the Intake catalog within Kedro
 
 The [Intake](https://intake.readthedocs.io/) catalog is similar to the Kedro `DataCatalog` and this repository serves as a testing ground for considering ways for the two tools to work together and provide users with a greater breadth of functionality. Eventually this repository could serve as a basis for a full fledged Kedro plugin.

@@ -3,9 +3,6 @@ disable_existing_loggers: False
 formatters:
     simple:
         format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
-    json_formatter:
-        format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
-        class: pythonjsonlogger.jsonlogger.JsonFormatter
 
 handlers:
     console:
@@ -34,11 +31,6 @@ handlers:
         encoding: utf8
         delay: True
 
-    journal_file_handler:
-        class: kedro.versioning.journal.JournalFileHandler
-        level: INFO
-        base_dir: logs/journals
-        formatter: json_formatter
 
 loggers:
     anyconfig:
@@ -56,10 +48,6 @@ loggers:
         handlers: [console, info_file_handler, error_file_handler]
         propagate: no
 
-    kedro.journal:
-        level: INFO
-        handlers: [journal_file_handler]
-        propagate: no
 
 root:
     level: INFO
