@@ -1,7 +1,7 @@
 # Pre-requisite
 This is a kedro project, prior to running install kedro, then use kedro command to run the project.
 
-    pip install kedro~=0.18.1
+    pip install kedro~=0.18.12
 
 # Prototype integration of the Intake catalog within Kedro
 
