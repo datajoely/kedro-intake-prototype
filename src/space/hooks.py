@@ -35,7 +35,6 @@ from kedro.config import ConfigLoader
 from kedro.framework.hooks import hook_impl
 
 from kedro.io import DataCatalog
-from kedro.versioning import Journal
 from space.extras.datasets.intake_dataset import IntakeDataSet
 
 # todo add the intake datasets to readable catalog entries prefixed with intake:
@@ -55,10 +54,9 @@ class ProjectHooks:
         credentials: Dict[str, Dict[str, Any]],
         load_versions: Dict[str, str],
         save_version: str,
-        journal: Journal,
     ) -> DataCatalog:
         return DataCatalog.from_config(
-            catalog, credentials, load_versions, save_version, journal
+            catalog, credentials, load_versions, save_version
         )
 
     @hook_impl
